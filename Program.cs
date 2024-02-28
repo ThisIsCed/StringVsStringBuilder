@@ -4,19 +4,16 @@ using System.Text;
 
 namespace StringVsStringBuilderDemo
 {
+	//Command zum Ausführen
 	//dotnet run --project StringVsStringBuilderDemo.csproj -c Release 
 
 	//Aktiviert die Speicher Diagnose 
 	[MemoryDiagnoser]
-	//Ordnet die Ergebnisse
-	[Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
-	//Fügt eine Rangspalte zur ausgabe der Ergebnise hinzu
-	[RankColumn]
-	public class Demo 
+	public class Demo
 	{
 		private int NumberOfRuns = 1000;
 
-		// Benchmark, der die Leistung der Zeichenkettenverkettung mit StringBuilder vergleicht
+		//Einer Zeichenkette wird mit StringBuilder ein weiters Zeichen hinzugefügt
 		[Benchmark]
 		public string StringConcatWithSB()
 		{
@@ -29,7 +26,7 @@ namespace StringVsStringBuilderDemo
 			return sb.ToString();
 		}
 
-		// Benchmark, der die Leistung der Zeichenkettenverkettung unter Verwendung des + Operators vergleicht
+		//Einem String wird n-Mal ein weiters Zeichen hinzugefügt
 		[Benchmark]
 		public string StringConcatWithString()
 		{
@@ -41,7 +38,7 @@ namespace StringVsStringBuilderDemo
 			return str;
 		}
 
-		// Benchmark, der die Leistung der Teilzeichenkettenextraktion durch Verkettung vergleicht
+		//Ein Teil der Zeichenkette wird vom String mit SubString extrahiert
 		[Benchmark]
 		public string ExtractStringUsingSubstring()
 		{
@@ -54,7 +51,7 @@ namespace StringVsStringBuilderDemo
 			return result;
 		}
 
-		// Benchmark, der die Leistung der Teilzeichenkettenextraktion unter Verwendung von StringBuilder vergleicht
+		//Ein Teil der Zeichenkette wird mithilfe von StringBuilder extrahiert
 		[Benchmark]
 		public string ExtractStringUsingAppend()
 		{
@@ -67,7 +64,7 @@ namespace StringVsStringBuilderDemo
 			return stringBuilder.ToString();
 		}
 
-		// Benchmark, der die Leistung der Zeichenkettenverkettung unter Verwendung von string.Join vergleicht
+		//Mehrere Zeichenketten werden zu einem String zusammengesetzt
 		[Benchmark]
 		public string JoinStringsUsingStringJoin()
 		{
@@ -79,7 +76,7 @@ namespace StringVsStringBuilderDemo
 			return result;
 		}
 
-		// Benchmark, der die Leistung der Zeichenkettenverkettung unter Verwendung von StringBuilder.AppendJoin vergleicht
+		//Mehrere Zeichenketten werden mit dem StringBuilder zusammengesetzt
 		[Benchmark]
 		public string JoinStringsUsingAppendJoin()
 		{
@@ -96,8 +93,8 @@ namespace StringVsStringBuilderDemo
 	{
 		static void Main(string[] args)
 		{
+			//Aufruf für den Benchmark
 			var summary = BenchmarkRunner.Run<Demo>();
-
 		}
 	}
 }
