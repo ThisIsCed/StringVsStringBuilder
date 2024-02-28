@@ -3,7 +3,7 @@ In diesem Projekt wird der Unterschied zwischen [String](https://learn.microsoft
 Um das Programm auzuführen, sollte man in die CLI gehen und dort folgenden command eingeben:
 `dotnet run --project StringVsStringBuilderDemo.csproj -c Release `
 
-Es werden sechs verschiedene Funktionen auf deren Speicherverbrauch und Laufzeit getestet. 
+Es werden sechs verschiedene Funktionen, n-Mal ausgeführt.  
 
 	1.StringConcatWithSB()
 	2.StringConcatWithString()
@@ -12,7 +12,7 @@ Es werden sechs verschiedene Funktionen auf deren Speicherverbrauch und Laufzeit
 	5.JoinStringsUsingStringJoin()
 	6.JoinStringsUsingAppendJoin()
 
-Am Ende erhält man eine Tabelle, die in der CLI ausgegeben wird.
+Am Ende erhält man eine Tabelle, in der die Metriken der Funktionen aufgezeigt werden, die in der CLI ausgegeben wird.
 ![CLI](Bilder/CLI.jpg)
 
 Alternativ erzeugt es auch noch eine .html-, .csv- und .md-Datei.
