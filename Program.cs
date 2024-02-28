@@ -11,6 +11,7 @@ namespace StringVsStringBuilderDemo
 	[MemoryDiagnoser]
 	public class Demo
 	{
+		//Nummer der Wiederholungen der Funktionen
 		private int NumberOfRuns = 1000;
 
 		//Einer Zeichenkette wird mit StringBuilder ein weiters Zeichen hinzugefügt
